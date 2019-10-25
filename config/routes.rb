@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  devise_for :users
   get '/', to: 'welcome#landing', as: 'root'
 
   get 'orders/index'
