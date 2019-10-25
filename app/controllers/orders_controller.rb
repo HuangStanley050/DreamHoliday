@@ -1,16 +1,14 @@
+# frozen_string_literal: true
+
 class OrdersController < ApplicationController
-  def index
-  end
+  before_action :authenticate_user!
+  def index; end
 
-  def create
-  end
+  def create; end
 
-  def edit
-  end
+  def edit; end
 
-  def success
-  end
+  def success; end
 
-  def show
-  end
+  def show; end
 end
