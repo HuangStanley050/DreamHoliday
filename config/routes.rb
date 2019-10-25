@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get '/', to: 'welcome#landing', as: 'root'
+
   get 'orders/index'
   get 'orders/create'
   get 'orders/edit'
@@ -8,7 +10,7 @@ Rails.application.routes.draw do
   get 'orders/show'
   post 'orders/create', to: 'orders#create'
   patch 'orders/edit/:id', to: 'orders#edit'
-  delete 'orders/delete/:id', to: 'orders#destroy'
+  delete 'orders/destroy/:id', to: 'orders#destroy'
 
   get 'holidays/index'
   get 'holidays/edit'
