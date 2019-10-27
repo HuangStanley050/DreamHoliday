@@ -9,9 +9,9 @@
     <%= f.label :name %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
   </div>
-  <%= radio_button_tag(:vendor, "vendor") %>
+  <%= f.radio_button(:vendor, true) %>
   <%= label_tag(:vendor, "I am a vendor") %>
-  <%= radio_button_tag(:normal, "normal") %>
+  <%= f.radio_button(:vendor,false) %>
   <%= label_tag(:vendor, "I am a regular user") %>
   <div class="field">
     <%= f.label :password %>
