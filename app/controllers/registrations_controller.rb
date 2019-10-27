@@ -7,10 +7,28 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     # add custom create logic here
-    p params
+    super
+    vendor = false
+    name = params['user']['name']
+    email = params['user']['email']
+
+    vendor = true if params['vendor']
+    # puts "vendor field is #{vendor}"
+    # puts "name is #{name}"
+    # puts "email is #{email}"
+    # puts params['password']
+    user = User.new
+
+    user.save
   end
 
   def update
     super
+  end
+
+  private
+
+  def sign_up_params
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :vendor, :admin)
   end
 end
