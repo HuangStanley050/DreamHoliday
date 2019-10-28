@@ -21,11 +21,12 @@ class HolidaysController < ApplicationController
     # p current_user
     # p params
     # p holiday_params
-    p "Current user id #{current_user.id}"
+    # p "Current user id #{current_user.id}"
     # @vendor = User.find(current_user.id)
 
-    @new_holiday = current_user.holidays.new(holiday_params)
-    puts "this is the service url:  #{@new_holiday.pictureUrl.service_url}"
+    downloadableURL = @new_holiday.pictureUrl.service_url
+    @new_holiday = current_user.holidays.new(title: holiday_params['title'], description: holiday_params['description'], price: holiday_params['price'], pictureUrl: downloadableURL)
+
     if @new_holiday.save
       redirect_to '/holidays/show'
     else
