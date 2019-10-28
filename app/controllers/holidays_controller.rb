@@ -25,6 +25,7 @@ class HolidaysController < ApplicationController
     # @vendor = User.find(current_user.id)
 
     @new_holiday = current_user.holidays.new(holiday_params)
+    puts "this is the service url:  #{@new_holiday.pictureUrl.service_url}"
     if @new_holiday.save
       redirect_to '/holidays/show'
     else
