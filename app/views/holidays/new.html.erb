@@ -1,5 +1,5 @@
 <h1>Create a holiday in Holiday route</h1>
-<%= form_with model: @holiday, local: true do |f| %>
+<%= form_with(model: @holiday, url:holidays_new_path) do |f| %>
   <%= label_tag(:title, "The title")%>
   <%= f.text_field :title %>
   <%= label_tag(:description, "Description")%>

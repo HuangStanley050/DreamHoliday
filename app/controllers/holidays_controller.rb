@@ -22,6 +22,6 @@ class HolidaysController < ApplicationController
   private
 
   def create_holiday_params
-    params.require(:holiday).permit(:title, :description, :picturUrl, :price)
+    params.require(:holiday).permit(:title, :description, :picturUrl, :price, :user)
   end
 end
