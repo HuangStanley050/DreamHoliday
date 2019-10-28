@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   get 'holidays/show'
   patch 'holidays/edit/:id', to: 'holidays#edit'
   delete 'holidays/destroy/:id', to: 'holidays#destroy'
-  post 'holidays/create', to: 'holidays#create'
+  post 'holidays/new', to: 'holidays#create'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
