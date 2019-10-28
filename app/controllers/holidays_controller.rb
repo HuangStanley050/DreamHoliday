@@ -1,16 +1,22 @@
+# frozen_string_literal: true
+
 class HolidaysController < ApplicationController
-  def index
-  end
+  before_action :authenticate_user!
+  def index; end
 
-  def edit
-  end
+  def edit; end
 
-  def create
-  end
+  def new; end
 
-  def show
-  end
+  def create; end
 
-  def destroy
+  def show; end
+
+  def destroy; end
+
+  private
+
+  def create_holiday_params
+    params.require(:holiday).permit(:title, :description, :picturUrl)
   end
 end
