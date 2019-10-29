@@ -13,5 +13,7 @@ class OrdersController < ApplicationController
 
   def success; end
 
-  def show; end
+  def show
+    @holiday = Holiday.find(params[:id])
+  end
 end

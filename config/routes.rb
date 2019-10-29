@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get 'orders/create'
   get 'orders/edit'
   get 'orders/success'
-  get 'orders/show'
+  get 'orders/show/:id', to: 'orders#show'
 
   post 'orders/create', to: 'orders#create'
   patch 'orders/edit/:id', to: 'orders#edit'

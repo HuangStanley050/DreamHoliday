@@ -1,2 +1,6 @@
 <h1>Orders#show</h1>
 <p>Find me in app/views/orders/show.html.erb</p>
+<h1><%= @holiday.title %></h1>
+<h2>Description</h2>
+<p><%= @holiday.description %></p>
+<button>Pay Deposit <%= number_to_currency(@holiday.price) %></button>

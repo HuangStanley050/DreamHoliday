@@ -7,6 +7,6 @@
     <p>Description: <%= holiday.description %></p>
     <h2>Price: $<%= holiday.price %></h2>
     <%= image_tag(holiday.pictureUrl.service_url) %>
-    <%=button_tag 'Order', type: 'button' %>
+    <button><%= link_to("Buy", "/orders/show/#{holiday.id}") %></button>
   </div>
 <% end %>
