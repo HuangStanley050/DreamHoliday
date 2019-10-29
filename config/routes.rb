@@ -15,11 +15,11 @@ Rails.application.routes.draw do
   delete 'orders/destroy/:id', to: 'orders#destroy'
 
   get 'holidays/index'
-  get 'holidays/edit'
+  get 'holidays/edit/:id', to: 'holidays#edit'
   get 'holidays/new', to: 'holidays#new'
   get 'holidays/show/:id', to: 'holidays#show'
 
-  patch 'holidays/edit/:id', to: 'holidays#edit'
+  patch 'holidays/edit/:id', to: 'holidays#update'
   delete 'holidays/destroy/:id', to: 'holidays#destroy'
   post 'holidays/new', to: 'holidays#create'
 

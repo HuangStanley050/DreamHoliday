@@ -35,6 +35,10 @@ class HolidaysController < ApplicationController
     @holiday = Holiday.find(params[:id])
   end
 
+  def update
+    puts 'You have hit the patch endpoint for '
+   end
+
   def destroy; end
 
   private
