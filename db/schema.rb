@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_28_221948) do
+ActiveRecord::Schema.define(version: 2019_10_29_011433) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2019_10_28_221948) do
     t.string "pictureUrl"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "price"
+    t.decimal "price"
     t.bigint "user_id"
     t.index ["user_id"], name: "index_holidays_on_user_id"
   end
