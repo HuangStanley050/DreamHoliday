@@ -3,10 +3,10 @@
 <p>Find me in app/views/orders/index.html.erb</p>
 <% @holidays.each do |holiday| %>
   <div>
-    <h2><%= holiday.title %></h2>
-    <p><%= holiday.description %></p>
-    <h2><%= holiday.price %></h2>
+    <h2>Title: <%= holiday.title %></h2>
+    <p>Description: <%= holiday.description %></p>
+    <h2>Price: $<%= holiday.price %></h2>
     <%= image_tag(holiday.pictureUrl.service_url) %>
+    <%=button_tag 'Order', type: 'button' %>
   </div>
-  <button>Buy</button>
 <% end %>
