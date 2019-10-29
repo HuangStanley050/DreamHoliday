@@ -7,7 +7,9 @@ class HolidaysController < ApplicationController
     @holidays = Holiday.all
   end
 
-  def edit; end
+  def edit
+    @holiday = Holiday.find(params[:id])
+  end
 
   def new
     if current_user.vendor
@@ -31,11 +33,13 @@ class HolidaysController < ApplicationController
   end
 
   def show
-    puts params
+    # puts params
     @holiday = Holiday.find(params[:id])
   end
 
   def update
+    holiday_params = params.require(:holiday).permit(:title, :description, :pictureUrl, :price)
+    puts holiday_params
     puts 'You have hit the patch endpoint for '
    end
 

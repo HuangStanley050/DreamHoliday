@@ -7,6 +7,6 @@
     <h2><%= holiday.price %></h2>
     <%= image_tag(holiday.pictureUrl.service_url) %>
   </div>
-  <button>Edit</button>
+  <button><%= link_to("Edit", "/holidays/edit/#{holiday.id}") %></button>
   <button>Purchase</button>
 <% end %>
