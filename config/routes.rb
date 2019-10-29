@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'orders/edit'
   get 'orders/success'
   get 'orders/show/:id', to: 'orders#show'
+  get 'orders/payments/success', to: 'orders#success'
 
   post 'orders/create', to: 'orders#create'
   patch 'orders/edit/:id', to: 'orders#edit'
