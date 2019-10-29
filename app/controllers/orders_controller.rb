@@ -15,14 +15,14 @@ class OrdersController < ApplicationController
 
   def show
     @holiday = Holiday.find(params[:id])
-
+    price = Integer(@holiday.price)
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       customer_email: current_user.email,
       line_items: [{
         name: @holiday.title,
         description: @holiday.description,
-        amount: @holiday.price * 100,
+        amount: price,
         currency: 'aud',
         quantity: 1
       }],
