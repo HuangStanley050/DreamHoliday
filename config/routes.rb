@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   get 'holidays/index'
   get 'holidays/edit'
   get 'holidays/new', to: 'holidays#new'
-  get 'holidays/show'
+  get 'holidays/show/:id', to: 'holidays#show'
 
   patch 'holidays/edit/:id', to: 'holidays#edit'
   delete 'holidays/destroy/:id', to: 'holidays#destroy'

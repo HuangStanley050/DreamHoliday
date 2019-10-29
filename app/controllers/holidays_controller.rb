@@ -18,33 +18,22 @@ class HolidaysController < ApplicationController
   end
 
   def create
-    # p current_user
-    # p params
-    # p holiday_params
-    # p "Current user id #{current_user.id}"
-    # @vendor = User.find(current_user.id)
-
     @new_holiday = current_user.holidays.new(holiday_params)
 
-    # downloadableURL = @new_holiday.pictureUrl.service_url
-
-    # @new_holiday = current_user.holidays.new(
-    #   title: holiday_params['title'], description: holiday_params['description'], price: holiday_params['price'], pictureUrl: downloadableURL
-    # )
-
-    # puts downloadableURL
-
     if @new_holiday.save
-      # puts 'the record has been saved###'
-      # puts @new_holiday.pictureUrl.service_url
-      redirect_to '/holidays/show'
+      id = @new_holiday.id
+      redirect_to "/holidays/show/#{id}"
     else
       p @new_holiday.errors
       puts 'something wrong happened'
+
     end
   end
 
-  def show; end
+  def show
+    puts params
+    @holiday = Holiday.find(params[:id])
+  end
 
   def destroy; end
 
