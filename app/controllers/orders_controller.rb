@@ -1,8 +1,11 @@
 # frozen_string_literal: true
 
 class OrdersController < ApplicationController
-  before_action :authenticate_user!
-  def index; end
+  before_action :authenticate_user!, only: %i[edit new show]
+
+  def index
+    @holidays = Holiday.all
+  end
 
   def create; end
 

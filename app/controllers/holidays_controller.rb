@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 class HolidaysController < ApplicationController
-  before_action :authenticate_user!, only: %i[edit new show]
+  before_action :authenticate_user!, only: %i[index edit new show]
 
   def index
+    redirect_to '/orders/index' if current_user.vendor == false
     @holidays = Holiday.all
   end
 
