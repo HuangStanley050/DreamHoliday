@@ -4,7 +4,7 @@ class HolidaysController < ApplicationController
   before_action :authenticate_user!, only: %i[edit new show]
 
   def index
-    # @listings = current_user.holidays
+    @holidays = Holiday.all
   end
 
   def edit; end

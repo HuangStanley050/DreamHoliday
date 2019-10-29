@@ -1,3 +1,10 @@
 <h1>Holidays#index</h1>
 <h1>Index/landing Page for Holidays</h1>
-<p>Find me in app/views/holidays/index.html.erb</p>
+<% @holidays.each do |holiday| %>
+  <div>
+    <h2><%= holiday.title %></h2>
+    <p><%= holiday.description %>
+      <p>
+        <h2><%= holiday.price %></h2>
+      </div>
+    <% end %>
