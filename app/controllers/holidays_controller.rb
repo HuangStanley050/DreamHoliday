@@ -51,7 +51,13 @@ class HolidaysController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    id = params[:id]
+    @holiday = current_user.holidays.find_by_id(id)
+    @holiday.destroy
+    puts 'successfully deleted'
+    redirect_to holidays_index_path
+  end
 
   private
 
