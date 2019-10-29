@@ -38,10 +38,18 @@ class HolidaysController < ApplicationController
   end
 
   def update
-    holiday_params = params.require(:holiday).permit(:title, :description, :pictureUrl, :price)
-    puts holiday_params
     puts 'You have hit the patch endpoint for '
-   end
+    id = params[:id]
+    @holiday = current_user.holidays.find_by_id(id)
+
+    if @holiday.update(holiday_params)
+      id = @holiday.id
+      redirect_to "/holidays/show/#{id}"
+    else
+      p @holiday.errors
+      puts 'Something went wrong'
+    end
+  end
 
   def destroy; end
 

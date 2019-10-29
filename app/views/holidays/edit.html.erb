@@ -1,7 +1,7 @@
 <h1>Holidays#edit</h1>
 <p>Find me in app/views/holidays/edit.html.erb</p>
 <h1>Edit your Holiday</h1>
-<%= form_with(model: @holiday, url:"/holidays/edit") do |f| %>
+<%= form_with(model: @holiday, url:"/holidays/edit/#{@holiday.id}") do |f| %>
   <%= label_tag(:title, "The title")%>
   <%= f.text_field :title %>
   <%= label_tag(:description, "Description")%>
