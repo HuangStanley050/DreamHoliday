@@ -33,7 +33,7 @@ class OrdersController < ApplicationController
         metadata: {
           user_id: current_user.id,
           listing_id: @holiday.id,
-          amount: price
+          amount: @holiday.price
         }
       },
       success_url: "#{root_url}orders/payments/success?userId=#{current_user.id}&listingId=#{@holiday.id}",
