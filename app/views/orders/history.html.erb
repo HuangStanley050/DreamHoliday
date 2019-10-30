@@ -1,0 +1,9 @@
+<h1>this is the history page</h1>
+<% @orders.each do |order| %>
+  <div>
+    <h2>Amount:
+      <%= order.priceTotal %></h2>
+    <h2>Date:
+      <%= order.date %></h2>
+  </div>
+<% end %>

@@ -4,10 +4,16 @@ require 'date'
 
 class OrdersController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:webhook]
-  before_action :authenticate_user!, only: %i[edit new show]
+  before_action :authenticate_user!, only: %i[edit new show history]
 
   def index
     @holidays = Holiday.all
+  end
+
+  def history
+    id = current_user.id
+
+    @orders = User.find(id).orders.all
   end
 
   def create; end
@@ -51,27 +57,20 @@ class OrdersController < ApplicationController
     totalPrice = payment.metadata.amount
 
     date = Date.current
-
     orderParam = { "priceTotal": totalPrice, "date": date, "user_id": user_id, "holiday_id": listing_id }
 
     # @newOrder_user = User.find(user_id).orders.new(orderParam)
     # @newOrder_holiday = Holiday.find(listing_id).orders.new(orderParam)
-
-    # <Order id: nil, priceTotal: 100000, date: "2019-10-30", created_at: nil, updated_at: nil, holiday_id: nil, user_id: 15>
-
     @newOrder = Order.new(orderParam)
 
     if @newOrder.save
       puts 'Saved to database'
-      status 200
+      puts "\n"
+      puts "\n"
     else
       puts 'something went wrong'
-      status 200
     end
-
-    # p 'total price ' + totalPrice
-    # p 'holiday id ' + listing_id
-    # p 'user id ' + user_id
-    # p 'purchase time ' + date.to_s
+    puts 'Before returning 200 status'
+    status 200
   end
 end
