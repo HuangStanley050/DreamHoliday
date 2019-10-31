@@ -4,7 +4,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav">
+    <ul class="navbar-nav ml-auto">
       <% if !current_user %>
         <li class='nav-item'>
           <a class='nav-link' href='/users/sign_in'>Login</a>
@@ -12,13 +12,13 @@
       <% end %>
       <% if current_user %>
         <% if current_user.vendor %>
-          <li class="nav-item">
+          <li class="nav-item navbar-right">
             <a class="nav-link" href="/holidays/index">Holidays</a>
           </li>
         <% end %>
       <% end %>
       <li class="nav-item">
-        <a class="nav-link" href="/orders/index">Catelogs</a>
+        <a class="nav-link" href="/orders/index">Catalogs</a>
       </li>
       <% if current_user %>
         <li class="nav-item">
