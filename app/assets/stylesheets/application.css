@@ -50,3 +50,7 @@ alert-error {
   width: 60%;
   margin: 2rem auto;
 }
+
+a {
+  color: white !important;
+}

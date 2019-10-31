@@ -8,8 +8,8 @@
           <%= image_tag(holiday.pictureUrl.service_url, class:"img-thumbnail") %>
           <p><span style="font-weight:bold">Description: </span> <%= holiday.description %></p>
           <p><span style="font-weight:bold">Price: </span> <%= holiday.price %></p>
-          <button><%= link_to("Edit", "/holidays/edit/#{holiday.id}") %></button>
-          <button><%= link_to "Destroy", "/holidays/destroy/#{holiday.id}", method: :delete, data: {confirm:"are you sure?"} %></button>
+          <button class="btn btn-warning"><%= link_to("Edit", "/holidays/edit/#{holiday.id}") %></button>
+          <button class='btn btn-danger'><%= link_to "Destroy", "/holidays/destroy/#{holiday.id}", method: :delete, data: {confirm:"are you sure?"} %></button>
         </div>
       </div>
     </div>
