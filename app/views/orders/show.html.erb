@@ -1,10 +1,14 @@
-<h1>Orders#show</h1>
-<p>Find me in app/views/orders/show.html.erb</p>
-<h1><%= @holiday.title %></h1>
-<h2>Description</h2>
-<p><%= @holiday.description %></p>
-<button data-stripe="payment">Pay Deposit
-  <%= number_to_currency(@holiday.price) %></button>
+<h1 class='text-center' style="margin-top:2rem">Your destiny awaits!!</h1>
+<div class='row' style="margin-top:2rem">
+  <div class='col text-center'>
+    <h1><%= @holiday.title %></h1>
+    <%= image_tag(@holiday.pictureUrl.service_url, class:"img-thumbnail") %>
+    <h2>Description</h2>
+    <p><%= @holiday.description %></p>
+    <button class="btn btn-info" data-stripe="payment">Pay Deposit
+      <%= number_to_currency(@holiday.price) %></button>
+  </div>
+</div>
 <script src="https://js.stripe.com/v3/"></script>
 <script>
   document.querySelector("[data-stripe='payment']").addEventListener("click", () => {
