@@ -5,6 +5,11 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
+      <% if !current_user %>
+        <li class='nav-item'>
+          <a class='nav-link' href='/users/sign_in'>Login</a>
+        </li>
+      <% end %>
       <li class="nav-item">
         <a class="nav-link" href="/holidays/index">Holidays</a>
       </li>
@@ -17,9 +22,11 @@
       <li class="nav-item">
         <a class="nav-link" href="/holidays/new">Add Holiday</a>
       </li>
-      <li class="nav-item">
-        <%= link_to "logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
-      </li>
+      <% if current_user %>
+        <li class="nav-item">
+          <%= link_to "logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </nav>
