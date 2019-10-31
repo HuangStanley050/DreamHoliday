@@ -1,9 +1,25 @@
-<h1>this is the history page</h1>
-<% @orders.each do |order| %>
-  <div>
-    <h2>Amount:
-      <%= order.priceTotal %></h2>
-    <h2>Date:
-      <%= order.date %></h2>
-  </div>
-<% end %>
+<h1 class='text-center mt-3'>Purchase History</h1>
+<div>
+  <table class='table'>
+    <thead class="thead-dark">
+      <tr>
+        <th>Holiday</th>
+        <th>Total</th>
+        <th>Date ordered</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td>
+            <%= order.holiday.title %></td>
+          <td>
+            <%= order.priceTotal %></td>
+          <td>
+            <%= order.date %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
