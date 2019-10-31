@@ -40,3 +40,9 @@ alert-error {
   color: #468847;
   text-align: left;
 }
+/* .new_user {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+} */
