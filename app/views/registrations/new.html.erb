@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2 class='text-center mt-3'>Sign up</h2>
 <div class='row'>
   <div class='col text-center'>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -11,10 +11,14 @@
         <%= f.label :name %><br />
         <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
       </div>
-      <%= f.radio_button(:vendor, true) %>
-      <%= label_tag(:vendor, "I am a vendor") %>
-      <%= f.radio_button(:vendor,false) %>
-      <%= label_tag(:vendor, "I am a regular user") %>
+      <div class="form-check">
+        <%= f.radio_button(:vendor, true, class:"form-check-input") %>
+        <%= label_tag(:vendor, "I am a vendor", class:"form-check-label") -%>
+      </div>
+      <div class='form-check'>
+        <%= f.radio_button(:vendor,false, class:"form-check-input") %>
+        <%= label_tag(:vendor, "I am a regular user", class:"form-check-label ") %>
+      </div>
       <div class="field">
         <%= f.label :password %>
         <% if @minimum_password_length %>
@@ -26,7 +30,7 @@
         <%= f.label :password_confirmation %><br />
         <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
       </div>
-      <div class="actions">
+      <div class="actions mt-4 mb-3">
         <%= f.submit "Sign up" %>
       </div>
     <% end %>
