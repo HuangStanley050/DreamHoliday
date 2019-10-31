@@ -5,7 +5,7 @@ class HolidaysController < ApplicationController
 
   def index
     redirect_to '/orders/index' if current_user.vendor == false
-    @holidays = Holiday.all
+    @holidays = current_user.holidays.all
   end
 
   def edit
