@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-  <a class="navbar-brand" href="#">Navbar</a>
+  <a class="navbar-brand" href="/">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -10,18 +10,28 @@
           <a class='nav-link' href='/users/sign_in'>Login</a>
         </li>
       <% end %>
+      <% if current_user %>
+        <% if current_user.vendor %>
+          <li class="nav-item">
+            <a class="nav-link" href="/holidays/index">Holidays</a>
+          </li>
+        <% end %>
+      <% end %>
       <li class="nav-item">
-        <a class="nav-link" href="/holidays/index">Holidays</a>
+        <a class="nav-link" href="/orders/index">Catelogs</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/orders/index">Orders</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/orders/history">Past Purchase</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/holidays/new">Add Holiday</a>
-      </li>
+      <% if current_user %>
+        <li class="nav-item">
+          <a class="nav-link" href="/orders/history">Past Purchase</a>
+        </li>
+      <% end %>
+      <% if current_user %>
+        <% if current_user.vendor %>
+          <li class="nav-item">
+            <a class="nav-link" href="/holidays/new">Add Holiday</a>
+          </li>
+        <% end %>
+      <% end %>
       <% if current_user %>
         <li class="nav-item">
           <%= link_to "logout", destroy_user_session_path, method: :delete, class: "nav-link" %>
