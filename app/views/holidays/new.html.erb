@@ -1,13 +1,21 @@
-<h1>Create a holiday in Holiday route</h1>
-<%= form_with(model: @holiday, url:holidays_new_path) do |f| %>
-  <%= label_tag(:title, "The title")%>
-  <%= f.text_field :title %>
-  <%= label_tag(:description, "Description")%>
-  <%= f.text_area :description, size: "60x12" %>
-  <%= label_tag(:pictureUrl, "Picture Url")%>
-  <%= f.label :picture %> <%= f.file_field :pictureUrl, accept:
-  'image/png,image/gif,image/jpeg,image/jpg' %>
-  <%= label_tag(:price, "Price")%>
-  <%= f.text_field :price %>
-  <%= f.submit "Create" %>
+<h1 class='text-center'>Add new Holiday to cataloge</h1>
+<%= form_with(model: @holiday, url:holidays_new_path, html: {class: "form-add-holiday"}) do |f| %>
+  <div class='form-group'>
+    <%= label_tag(:title, "The title")%>
+    <%= f.text_field :title, class:'form-control' %>
+  </div>
+  <div class='form-group'>
+    <%= label_tag(:description, "Description")%>
+    <%= f.text_area :description, class:"form-control" %>
+  </div>
+  <div class='form-group'>
+    <%= label_tag(:pictureUrl, "Picture Url")%>
+    <%= f.file_field :pictureUrl, accept:
+    'image/png,image/gif,image/jpeg,image/jpg', class: "form-control-file" %>
+  </div>
+  <div class='form-group'>
+    <%= label_tag(:price, "Price")%>
+    <%= f.text_field :price, class:"form-control" %>
+  </div>
+  <%= f.submit "Create", class:"btn btn-primary" %>
 <% end %>

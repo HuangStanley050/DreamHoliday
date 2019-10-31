@@ -1,12 +1,16 @@
-<h1>Orders#index</h1>
-<h1>All available orders for user to select</h1>
-<p>Find me in app/views/orders/index.html.erb</p>
-<% @holidays.each do |holiday| %>
-  <div>
-    <h2>Title: <%= holiday.title %></h2>
-    <p>Description: <%= holiday.description %></p>
-    <h2>Price: $<%= holiday.price %></h2>
-    <%= image_tag(holiday.pictureUrl.service_url) %>
-    <button><%= link_to("Buy", "/orders/show/#{holiday.id}") %></button>
-  </div>
-<% end %>
+<h1 class='text-center'>Choose your destiny</h1>
+<div class='row'>
+  <% @holidays.each do |holiday| %>
+    <div class='col-12 col-sm-6 col-md-4 mt-2 row-eq-height'>
+      <div class="card" style="height:100%" >
+        <%= image_tag(holiday.pictureUrl.service_url, class:"img-thumbnail") %>
+        <div class="card-body">
+          <h2 class='card-title'>Title: <%= holiday.title %></h2>
+          <p class='card-text'>Description: <%= holiday.description %></p>
+          <p class="card-text">Price: $<%= holiday.price %></h2>
+          <button class="btn btn-warning"><%= link_to("Buy", "/orders/show/#{holiday.id}") %></button>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
