@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get 'orders/history'
   get 'orders/payments/success', to: 'orders#success'
   post 'orders/payments/webhook', to: 'orders#webhook'
+  post 'orders/sort', to: 'orders#sort'
 
   post 'orders/create', to: 'orders#create'
   patch 'orders/edit/:id', to: 'orders#edit'

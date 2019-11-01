@@ -1,4 +1,9 @@
-<h1 class='text-center' style="margin-top:2rem">Choose your destiny</h1>
+<div>
+  <h1 class='text-center' style="margin-top:2rem">Choose your destiny</h1>
+  <%= form_with url:"/orders/sort" do |form| %>
+    <%= form.button("Sort Price", class:"btn btn-success") %>
+  <% end %>
+</div>
 <div class='row'>
   <% @holidays.each do |holiday| %>
     <div class='col-12 col-sm-6 col-md-4 mt-2 row-eq-height'>

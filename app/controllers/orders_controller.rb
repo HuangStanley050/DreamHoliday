@@ -7,7 +7,16 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: %i[edit new show history]
 
   def index
-    @holidays = Holiday.all
+    @holidays = if params[:sortparams] == 'true'
+                  Holiday.order(price: :asc)
+                else
+                  Holiday.all
+                end
+  end
+
+  def sort
+    @sort = true
+    redirect_to orders_index_path(sortparams: @sort)
   end
 
   def history
