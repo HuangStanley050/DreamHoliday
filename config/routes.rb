@@ -22,6 +22,7 @@ Rails.application.routes.draw do
   get 'holidays/edit/:id', to: 'holidays#edit'
   get 'holidays/new', to: 'holidays#new'
   get 'holidays/show/:id', to: 'holidays#show'
+  get 'holidays/error'
 
   patch 'holidays/edit/:id', to: 'holidays#update'
   delete 'holidays/destroy/:id', to: 'holidays#destroy'

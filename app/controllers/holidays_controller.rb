@@ -27,10 +27,19 @@ class HolidaysController < ApplicationController
       id = @new_holiday.id
       redirect_to "/holidays/show/#{id}"
     else
-      p @new_holiday.errors
-      puts 'something wrong happened'
+      p @new_holiday.errors.messages
+      # puts 'something wrong happened'
+      titleError = @new_holiday.errors.messages[:title][0]
+      descriptionError = @new_holiday.errors.messages[:description][0]
+      pictureUrlError = @new_holiday.errors.messages[:pictureUrl][0]
+      priceError = @new_holiday.errors.messages[:price][0]
 
+      redirect_to holidays_error_path(title: titleError, description: descriptionError, pictureUrl: pictureUrlError, price: priceError)
     end
+  end
+
+  def error
+    puts params
   end
 
   def show
