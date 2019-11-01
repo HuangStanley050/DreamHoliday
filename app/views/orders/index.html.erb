@@ -1,7 +1,7 @@
-<div>
-  <h1 class='text-center' style="margin-top:2rem">Choose your destiny</h1>
-  <%= form_with url:"/orders/sort" do |form| %>
-    <%= form.button("Sort Price", class:"btn btn-success") %>
+<div class="d-flex justify-content-end mt-3">
+  <h1 class='text-center mr-2' >Choose your destiny</h1>
+  <%= form_with url:"/orders/sort", class:"d-flex align-items-center" do |form| %>
+    <%= form.button("Sort Price", class:"btn btn-success ") %>
   <% end %>
 </div>
 <div class='row'>
