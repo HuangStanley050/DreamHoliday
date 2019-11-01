@@ -4,7 +4,7 @@
 
 *https://frightful-hollow-65298.herokuapp.com/*
 
-[Live Site](https://frightful-hollow-65298.herokuapp.com/)
+
 
 # Users
 
