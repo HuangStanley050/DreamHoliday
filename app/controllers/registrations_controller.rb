@@ -6,21 +6,7 @@ class RegistrationsController < Devise::RegistrationsController
   end
 
   def create
-    # add custom create logic here
     super
-    # vendor = false
-    # name = params['user']['name']
-    # email = params['user']['email']
-    #
-    # vendor = true if params['vendor']
-    # # puts "vendor field is #{vendor}"
-    # # puts "name is #{name}"
-    # # puts "email is #{email}"
-    # p sign_up_params['vendor']
-    # byebug
-    # user = User.new
-    #
-    # user.save
   end
 
   def update
