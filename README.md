@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# Live site
 
-Things you may want to cover:
+*https://frightful-hollow-65298.herokuapp.com/*
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
+# Users
 
-* Database creation
+**user**
 
-* Database initialization
+test@test.com --->Vendor 1
 
-* How to run the test suite
+test2@test.com --->Vendor 2
 
-* Services (job queues, cache servers, search engines, etc.)
+test3@test.com  --->Buyer 1
 
-* Deployment instructions
+test4@test.com --->Buyer 2
 
-* ...
+**password**
+ 123456
