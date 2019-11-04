@@ -68,8 +68,6 @@ class OrdersController < ApplicationController
     date = Date.current
     orderParam = { "priceTotal": totalPrice, "date": date, "user_id": user_id, "holiday_id": listing_id }
 
-    # @newOrder_user = User.find(user_id).orders.new(orderParam)
-    # @newOrder_holiday = Holiday.find(listing_id).orders.new(orderParam)
     @newOrder = Order.new(orderParam)
 
     if @newOrder.save
@@ -80,6 +78,7 @@ class OrdersController < ApplicationController
       puts 'something went wrong'
     end
     puts 'Before returning 200 status'
+    # # byebug
     status 200
   end
 end
