@@ -74,27 +74,29 @@ class OrdersController < ApplicationController
     @session_id = session.id
   end
 
-  def webhook
-    payment_id = params[:data][:object][:payment_intent]
-    payment = Stripe::PaymentIntent.retrieve(payment_id)
-    listing_id = payment.metadata.listing_id
-    user_id = payment.metadata.user_id
-    totalPrice = payment.metadata.amount
+  # Not able to implement webhook after payment is successful, Stripe keep on sending 500 error before I can return the success status on line 100
 
-    date = Date.current
-    orderParam = { "priceTotal": totalPrice, "date": date, "user_id": user_id, "holiday_id": listing_id }
-
-    @newOrder = Order.new(orderParam)
-
-    if @newOrder.save
-      puts 'Saved to database'
-      puts "\n"
-      puts "\n"
-    else
-      puts 'something went wrong'
-    end
-    puts 'Before returning 200 status'
-    # # byebug
-    status 200
-  end
+  # def webhook
+  #   payment_id = params[:data][:object][:payment_intent]
+  #   payment = Stripe::PaymentIntent.retrieve(payment_id)
+  #   listing_id = payment.metadata.listing_id
+  #   user_id = payment.metadata.user_id
+  #   totalPrice = payment.metadata.amount
+  #
+  #   date = Date.current
+  #   orderParam = { "priceTotal": totalPrice, "date": date, "user_id": user_id, "holiday_id": listing_id }
+  #
+  #   @newOrder = Order.new(orderParam)
+  #
+  #   if @newOrder.save
+  #     puts 'Saved to database'
+  #     puts "\n"
+  #     puts "\n"
+  #   else
+  #     puts 'something went wrong'
+  #   end
+  #   puts 'Before returning 200 status'
+  #   # # byebug
+  #   status 200
+  # end
 end
