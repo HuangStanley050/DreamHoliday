@@ -27,9 +27,25 @@ class OrdersController < ApplicationController
 
   def create; end
 
-  def edit; end
+  def success
+    puts params
+    listing_id = params[:listingId]
+    user_id = params[:userId]
+    totalPrice = params[:amount]
+    date = Date.current
 
-  def success; end
+    orderParam = { "priceTotal": totalPrice, "date": date, "user_id": user_id, "holiday_id": listing_id }
+
+    @newOrder = Order.new(orderParam)
+
+    if @newOrder.save
+      puts 'Saved to database'
+      puts "\n"
+      puts "\n"
+    else
+      puts 'something went wrong'
+    end
+  end
 
   def show
     @holiday = Holiday.find(params[:id])
@@ -51,7 +67,7 @@ class OrdersController < ApplicationController
           amount: @holiday.price
         }
       },
-      success_url: "#{root_url}orders/payments/success?userId=#{current_user.id}&listingId=#{@holiday.id}",
+      success_url: "#{root_url}orders/payments/success?userId=#{current_user.id}&listingId=#{@holiday.id}&amount=#{@holiday.price}",
       cancel_url: "#{root_url}orders/index"
     )
 

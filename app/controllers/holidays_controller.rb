@@ -4,18 +4,18 @@ class HolidaysController < ApplicationController
   before_action :authenticate_user!, only: %i[index edit new show]
 
   def index
-    redirect_to '/orders/index' if current_user.vendor == false
+    redirect_to '/orders/index' if current_user.vendor == false # route guard
     @holidays = current_user.holidays.all
   end
 
   def edit
-    redirect_to '/orders/index' if current_user.vendor == false
-    redirect_to '/holidays/index' if current_user.holidays.find_by_id(params[:id]).nil?
+    redirect_to '/orders/index' if current_user.vendor == false # route guard
+    redirect_to '/holidays/index' if # route guard current_user.holidays.find_by_id(params[:id]).nil?
     @holiday = Holiday.find(params[:id])
   end
 
   def new
-    if current_user.vendor
+    if current_user.vendor # route guard
       @holiday = Holiday.new
     else
       redirect_to '/holidays/index'
@@ -46,7 +46,7 @@ class HolidaysController < ApplicationController
 
   def show
     # puts params
-    redirect_to '/orders/index' if current_user.vendor == false
+    redirect_to '/orders/index' if current_user.vendor == false # route guard
     @holiday = Holiday.find(params[:id])
   end
 
