@@ -10,6 +10,7 @@ class HolidaysController < ApplicationController
 
   def edit
     redirect_to '/orders/index' if current_user.vendor == false
+    redirect_to 'holidays/index' unless current_user.holidays.find(params[:id])
     @holiday = Holiday.find(params[:id])
   end
 

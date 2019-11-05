@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   get 'orders/index'
   get 'orders/create'
-  get 'orders/edit'
   get 'orders/success'
   get 'orders/show/:id', to: 'orders#show'
   get 'orders/history'
