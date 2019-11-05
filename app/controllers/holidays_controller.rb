@@ -9,6 +9,7 @@ class HolidaysController < ApplicationController
   end
 
   def edit
+    redirect_to '/orders/index' if current_user.vendor == false
     @holiday = Holiday.find(params[:id])
   end
 
@@ -44,6 +45,7 @@ class HolidaysController < ApplicationController
 
   def show
     # puts params
+    redirect_to '/orders/index' if current_user.vendor == false
     @holiday = Holiday.find(params[:id])
   end
 
