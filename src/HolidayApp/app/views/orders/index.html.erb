@@ -1,0 +1,21 @@
+<div class="d-flex justify-content-end mt-3">
+  <h1 class='text-center mr-2' >Choose your destiny</h1>
+  <%= form_with url:"/orders/sort", class:"d-flex align-items-center" do |form| %>
+    <%= form.button("Sort Price", class:"btn btn-success ") %>
+  <% end %>
+</div>
+<div class='row'>
+  <% @holidays.each do |holiday| %>
+    <div class='col-12 col-sm-6 col-md-4 mt-2 row-eq-height'>
+      <div class="card" style="height:100%" >
+        <%= image_tag(holiday.pictureUrl.service_url, class:"img-thumbnail") %>
+        <div class="card-body">
+          <h2 class='card-title'>Title: <%= holiday.title %></h2>
+          <p class='card-text'><span style="font-weight:bold">Description: </span> <%= holiday.description %></p>
+          <p class="card-text"><span style="font-weight:bold">Price: </span>$<%= holiday.price %></p>
+          <button class="btn btn-warning"><%= link_to("Buy", "/orders/show/#{holiday.id}") %></button>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

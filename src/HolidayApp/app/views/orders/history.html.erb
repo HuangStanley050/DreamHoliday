@@ -1,0 +1,25 @@
+<h1 class='text-center mt-3'>Purchase History</h1>
+<div>
+  <table class='table'>
+    <thead class="thead-dark">
+      <tr>
+        <th>Holiday</th>
+        <th>Total</th>
+        <th>Date ordered</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+        <tr>
+          <td>
+            <%= order.holiday.title %></td>
+          <td>
+            <%= order.priceTotal %></td>
+          <td>
+            <%= order.date %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

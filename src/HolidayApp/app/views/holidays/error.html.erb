@@ -1,0 +1,25 @@
+<h1 class='text-center mt-5'>You have encountered error</h1>
+<div class='row'>
+  <div class='col text-center'>
+    <% if params[:title] %>
+      <div class="alert alert-danger mb-2" role="alert">
+        Title : <%= params[:title] %>
+      </div>
+    <% end %>
+    <% if params[:description] %>
+      <div class="alert alert-danger mb-2" role="alert">
+        Description : <%= params[:description] %>
+      </div>
+    <% end %>
+    <% if params[:pictureUrl] %>
+      <div class="alert alert-danger mb-2" role="alert">
+        PictureUrl : <%= params[:pictureUrl] %>
+      </div>
+    <% end %>
+    <% if params[:price] %>
+      <div class="alert alert-danger mb-2" role="alert">
+        Price : <%= params[:price] %>
+      </div>
+    <% end %>
+  </div>
+</div>
